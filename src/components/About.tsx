@@ -9,10 +9,10 @@ export function About() {
   const { elementRef, isIntersecting } = useIntersectionObserver();
 
   const features = [
-    { icon: Leaf, value: '100%', label: 'Organic' },
-    { icon: Award, value: '35+', label: 'Years' },
-    { icon: Users, value: '50K+', label: 'Customers' },
-    { icon: Globe, value: '25+', label: 'Countries' },
+    { icon: Leaf, value: '1985', label: t('about.stats.founded') },
+    { icon: Award, value: '90', label: t('about.stats.acres') },
+    { icon: Users, value: '3', label: t('about.stats.generations') },
+    { icon: Globe, value: '3', label: t('about.stats.locations') },
   ];
 
   return (
@@ -50,9 +50,25 @@ export function About() {
               {t('about.subtitle')}
             </p>
             
-            <p className="text-soil/80 leading-relaxed mb-8">
-              {t('about.text')}
-            </p>
+            <div className="text-soil/80 leading-relaxed mb-8 space-y-4">
+              {t('about.text').split('. ').slice(0, 3).map((sentence, index) => (
+                <p key={index} className="text-sm md:text-base">
+                  {sentence}{index < 2 ? '.' : ''}
+                </p>
+              ))}
+              <details className="cursor-pointer">
+                <summary className="text-forest font-semibold hover:text-forest/80 transition-colors">
+                  {t('about.readMore')}
+                </summary>
+                <div className="mt-4 space-y-4">
+                  {t('about.text').split('. ').slice(3).map((sentence, index) => (
+                    <p key={index + 3} className="text-sm md:text-base">
+                      {sentence}{index < t('about.text').split('. ').slice(3).length - 1 ? '.' : ''}
+                    </p>
+                  ))}
+                </div>
+              </details>
+            </div>
 
             {/* Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -78,34 +94,60 @@ export function About() {
             </div>
           </motion.div>
 
-          {/* Image */}
+          {/* Images */}
           <motion.div
             className="relative"
             initial={{ opacity: 0, x: 60 }}
             animate={isIntersecting ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="relative rounded-2xl overflow-hidden">
-              <img 
-                src="https://images.pexels.com/photos/1412236/pexels-photo-1412236.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Sustainable farming"
-                className="w-full h-96 object-cover"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-forest/20 to-transparent" />
-            </div>
-            
-            {/* Floating card */}
-            <motion.div
-              className="absolute -bottom-8 -left-8 bg-white/95 backdrop-blur-sm rounded-xl p-6 shadow-xl"
-              whileHover={{ scale: 1.05, y: -5 }}
-              transition={{ duration: 0.3 }}
-            >
-              <div className="flex items-center space-x-3">
-                <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
-                <span className="font-semibold text-forest">Eco-Certified</span>
+            <div className="space-y-6">
+              {/* Main Farm Image */}
+              <div className="relative rounded-2xl overflow-hidden">
+                <img 
+                  src="/images/azienda-panoramica.jpg"
+                  alt="Azienda Agricola Giovanni Guarino - Vista panoramica dei terreni"
+                  className="w-full h-64 object-cover"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-forest/20 to-transparent" />
+                
+                {/* Info overlay */}
+                <motion.div
+                  className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-xl"
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="flex items-center space-x-3">
+                    <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
+                    <span className="font-semibold text-forest">90 Acri di Terreno</span>
+                  </div>
+                </motion.div>
               </div>
-            </motion.div>
+
+              {/* Products Image */}
+              <div className="relative rounded-2xl overflow-hidden">
+                <img 
+                  src="/images/prodotti-nocciole.jpg"
+                  alt="Azienda Agricola Giovanni Guarino - Nocciole e prodotti agricoli"
+                  className="w-full h-48 object-cover"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-forest/20 to-transparent" />
+                
+                {/* Products overlay */}
+                <motion.div
+                  className="absolute bottom-4 right-4 bg-white/95 backdrop-blur-sm rounded-xl p-3 shadow-xl"
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="flex items-center space-x-2">
+                    <div className="w-3 h-3 bg-orange-500 rounded-full animate-pulse" />
+                    <span className="font-semibold text-forest text-sm">Nocciole Premium</span>
+                  </div>
+                </motion.div>
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>

@@ -35,9 +35,19 @@ export function Hero() {
       {/* Background with parallax */}
       <div 
         ref={parallaxRef}
-        className="absolute inset-0 bg-gradient-to-br from-forest via-forest/90 to-soil"
+        className="absolute inset-0"
       >
-        {/* Organic shapes */}
+        {/* Farm Image Background */}
+        <div className="absolute inset-0">
+          <img
+            src="/images/hero-background.jpg"
+            alt="Azienda Agricola Giovanni Guarino - Campi di nocciole"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-forest/80 via-forest/70 to-soil/60"></div>
+        </div>
+
+        {/* Organic shapes overlay */}
         <svg
           ref={shapeRef}
           className="absolute top-20 right-20 w-64 h-64 opacity-10"
