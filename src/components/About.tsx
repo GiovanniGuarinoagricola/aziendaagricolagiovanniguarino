@@ -10,9 +10,9 @@ export function About() {
 
   const features = [
     { icon: Leaf, value: '1985', label: t('about.stats.founded') },
-    { icon: Award, value: '90', label: t('about.stats.acres') },
-    { icon: Users, value: '3', label: t('about.stats.generations') },
-    { icon: Globe, value: '3', label: t('about.stats.locations') },
+    { icon: Award, value: '70', label: t('about.stats.hectares') },
+    { icon: Users, value: '80.000', label: t('about.stats.trees') },
+    { icon: Globe, value: '3', label: t('about.stats.cultivations') },
   ];
 
   return (
@@ -46,26 +46,51 @@ export function About() {
               {t('about.title')}
             </h2>
             
-            <p className="text-lg text-soil mb-8 leading-relaxed">
+            <p className="text-lg text-soil mb-6 leading-relaxed italic">
               {t('about.subtitle')}
             </p>
             
-            <div className="text-soil/80 leading-relaxed mb-8 space-y-4">
-              {t('about.text').split('. ').slice(0, 3).map((sentence, index) => (
-                <p key={index} className="text-sm md:text-base">
-                  {sentence}{index < 2 ? '.' : ''}
-                </p>
-              ))}
-              <details className="cursor-pointer">
-                <summary className="text-forest font-semibold hover:text-forest/80 transition-colors">
+            <div className="text-soil/80 leading-relaxed mb-8 space-y-5">
+              {/* Storia - sempre visibile */}
+              <div>
+                <h3 className="text-forest font-bold text-sm uppercase tracking-widest mb-2 flex items-center gap-2">
+                  <span className="inline-block w-6 h-px bg-forest"></span>
+                  {t('about.section.history')}
+                </h3>
+                <p className="text-sm md:text-base">{t('about.history.text')}</p>
+              </div>
+
+              <details className="cursor-pointer group">
+                <summary className="text-forest font-semibold hover:text-forest/80 transition-colors list-none flex items-center gap-2 select-none">
+                  <span className="inline-block w-4 h-4 border-2 border-forest rounded-full flex items-center justify-center text-xs group-open:rotate-45 transition-transform">+</span>
                   {t('about.readMore')}
                 </summary>
-                <div className="mt-4 space-y-4">
-                  {t('about.text').split('. ').slice(3).map((sentence, index) => (
-                    <p key={index + 3} className="text-sm md:text-base">
-                      {sentence}{index < t('about.text').split('. ').slice(3).length - 1 ? '.' : ''}
-                    </p>
-                  ))}
+                <div className="mt-5 space-y-5">
+                  <div>
+                    <h3 className="text-forest font-bold text-sm uppercase tracking-widest mb-2 flex items-center gap-2">
+                      <span className="inline-block w-6 h-px bg-forest"></span>
+                      {t('about.section.territory')}
+                    </h3>
+                    <p className="text-sm md:text-base">{t('about.territory.text')}</p>
+                  </div>
+                  <div>
+                    <h3 className="text-forest font-bold text-sm uppercase tracking-widest mb-2 flex items-center gap-2">
+                      <span className="inline-block w-6 h-px bg-forest"></span>
+                      {t('about.section.plantations')}
+                    </h3>
+                    <p className="text-sm md:text-base">{t('about.plantations.text')}</p>
+                  </div>
+                  <div>
+                    <h3 className="text-forest font-bold text-sm uppercase tracking-widest mb-2 flex items-center gap-2">
+                      <span className="inline-block w-6 h-px bg-forest"></span>
+                      {t('about.section.values')}
+                    </h3>
+                    <div className="space-y-1">
+                      {t('about.values.text').split('\n').map((line, i) => (
+                        <p key={i} className="text-sm md:text-base">{line}</p>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </details>
             </div>
@@ -120,7 +145,7 @@ export function About() {
                 >
                   <div className="flex items-center space-x-3">
                     <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
-                    <span className="font-semibold text-forest">90 Acri di Terreno</span>
+                    <span className="font-semibold text-forest">70 Ettari di Terreno</span>
                   </div>
                 </motion.div>
               </div>
@@ -128,8 +153,8 @@ export function About() {
               {/* Products Image */}
               <div className="relative rounded-2xl overflow-hidden">
                 <img 
-                  src="/images/prodotti-nocciole.jpg"
-                  alt="Azienda Agricola Giovanni Guarino - Nocciole e prodotti agricoli"
+                  src="/images/footer-background.jpg"
+                  alt="Impresa Agricola Guarino Giovanni - Prodotti premium"
                   className="w-full h-48 object-cover"
                   loading="lazy"
                 />
@@ -143,7 +168,7 @@ export function About() {
                 >
                   <div className="flex items-center space-x-2">
                     <div className="w-3 h-3 bg-orange-500 rounded-full animate-pulse" />
-                    <span className="font-semibold text-forest text-sm">Nocciole Premium</span>
+                    <span className="font-semibold text-forest text-sm">Prodotti Premium</span>
                   </div>
                 </motion.div>
               </div>

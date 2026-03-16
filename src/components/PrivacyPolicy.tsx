@@ -14,8 +14,8 @@ export function PrivacyPolicy() {
     {
       title: language === 'it' ? 'Titolare del Trattamento' : 'Data Controller',
       content: language === 'it' ? 
-        'Azienda Agricola Giovanni Guarino, con sede legale in Via delle Castellazioni 19, 81017 Melito di Napoli (NA), P.IVA 08236581214, in qualità di Titolare del trattamento dei dati personali.' :
-        'Azienda Agricola Giovanni Guarino, with registered office at Via delle Castellazioni 19, 81017 Melito di Napoli (NA), VAT 08236581214, as Data Controller of personal data.'
+        'Impresa Agricola Guarino Giovanni, con sede legale in Via Fontana Regina, 34 Teano (Ce), in qualità di Titolare del trattamento dei dati personali.' :
+        'Impresa Agricola Guarino Giovanni, with registered office at Via Fontana Regina, 34 Teano (Ce), as Data Controller of personal data.'
     },
     {
       title: language === 'it' ? 'Finalità del Trattamento' : 'Purpose of Processing',
@@ -121,8 +121,8 @@ export function PrivacyPolicy() {
                     {language === 'it' ? 'Indirizzo' : 'Address'}
                   </p>
                   <p className="text-sand/80 text-sm">
-                    Via delle Castellazioni 19<br />
-                    81017 Melito di Napoli (NA)
+                    Via Fontana Regina, 34<br />
+                    Teano (Ce)
                   </p>
                 </div>
               </div>
@@ -131,7 +131,7 @@ export function PrivacyPolicy() {
                 <div>
                   <p className="text-white font-medium">Email</p>
                   <p className="text-sand/80 text-sm">
-                    privacy@giovannistefanifarm.it
+                    giovanniguarinosrl@gmail.com
                   </p>
                 </div>
               </div>
@@ -142,7 +142,7 @@ export function PrivacyPolicy() {
                     {language === 'it' ? 'Telefono' : 'Phone'}
                   </p>
                   <p className="text-sand/80 text-sm">
-                    +39 081 123 4567
+                    331.8948442 – 392.9779532
                   </p>
                 </div>
               </div>

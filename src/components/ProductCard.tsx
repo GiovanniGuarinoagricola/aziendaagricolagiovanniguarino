@@ -15,8 +15,17 @@ export function ProductCard({ title, description, price, image, index }: Product
   const { t } = useLanguage();
 
   const handleWhatsAppOrder = () => {
-    const message = `${t('whatsapp.orderMessage')} ${title} - ${price}`;
-    const whatsappUrl = `https://wa.me/393478901234?text=${encodeURIComponent(message)}`;
+    const message = [
+      t('whatsapp.msgGreeting'),
+      '',
+      t('whatsapp.msgIntro'),
+      `🌿 *${title}*`,
+      '',
+      t('whatsapp.msgRequest'),
+      '',
+      t('whatsapp.msgThanks'),
+    ].join('\n');
+    const whatsappUrl = `https://wa.me/393294555978?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 
@@ -29,12 +38,17 @@ export function ProductCard({ title, description, price, image, index }: Product
       transition={{ duration: 0.6, delay: index * 0.1 }}
       whileHover={{ y: -8, scale: 1.02 }}
     >
-      <div className="relative overflow-hidden">
+      <div className="relative overflow-hidden bg-white/5">
         <img 
           src={image} 
           alt={title}
-          className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700"
+          className="w-full h-56 object-contain p-2 group-hover:scale-105 transition-transform duration-700"
           loading="lazy"
+          onError={(e) => {
+            const target = e.currentTarget;
+            target.onerror = null;
+            target.src = '/images/products/placeholder.jpg';
+          }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         
@@ -59,7 +73,7 @@ export function ProductCard({ title, description, price, image, index }: Product
             {price}
           </span>
           <span className="text-sand/70 text-sm">
-            per confezione
+            {t('products.perPackage')}
           </span>
         </div>
         
@@ -74,7 +88,7 @@ export function ProductCard({ title, description, price, image, index }: Product
         </motion.button>
         
         <p className="text-sand/60 text-xs text-center mt-2">
-          Ordine veloce tramite WhatsApp
+          {t('whatsapp.fastOrder')}
         </p>
       </div>
     </motion.div>

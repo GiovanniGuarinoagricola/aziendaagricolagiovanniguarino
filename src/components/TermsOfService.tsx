@@ -14,8 +14,8 @@ export function TermsOfService() {
     {
       title: language === 'it' ? 'Informazioni Generali' : 'General Information',
       content: language === 'it' ? 
-        'Questi termini di servizio regolano l\'utilizzo del sito web e l\'acquisto di prodotti da Azienda Agricola Giovanni Guarino. Utilizzando questo sito, accetti integralmente questi termini.' :
-        'These terms of service govern the use of the website and the purchase of products from Azienda Agricola Giovanni Guarino. By using this site, you fully accept these terms.'
+        'Questi termini di servizio regolano l\'utilizzo del sito web e l\'acquisto di prodotti da Impresa Agricola Guarino Giovanni, con sede in Via Fontana Regina, 34 Teano (Ce). Utilizzando questo sito, accetti integralmente questi termini.' :
+        'These terms of service govern the use of the website and the purchase of products from Impresa Agricola Guarino Giovanni, with offices at Via Fontana Regina, 34 Teano (Ce). By using this site, you fully accept these terms.'
     },
     {
       title: language === 'it' ? 'Prodotti e Prezzi' : 'Products and Prices',
@@ -50,14 +50,14 @@ export function TermsOfService() {
     {
       title: language === 'it' ? 'Proprietà Intellettuale' : 'Intellectual Property',
       content: language === 'it' ? 
-        'Tutti i contenuti del sito (testi, immagini, loghi) sono protetti da copyright e proprietà intellettuale di Azienda Agricola Giovanni Guarino.' :
-        'All site content (texts, images, logos) are protected by copyright and intellectual property of Impresa Agricola di Guarino Giovanni.'
+        'Tutti i contenuti del sito (testi, immagini, loghi) sono protetti da copyright e proprietà intellettuale di Impresa Agricola Guarino Giovanni.' :
+        'All site content (texts, images, logos) are protected by copyright and intellectual property of Impresa Agricola Guarino Giovanni.'
     },
     {
       title: language === 'it' ? 'Legge Applicabile' : 'Applicable Law',
       content: language === 'it' ? 
-        'Questi termini sono regolati dalla legge italiana. Per qualsiasi controversia sarà competente il Foro di Napoli.' :
-        'These terms are governed by Italian law. For any dispute, the Court of Naples will have jurisdiction.'
+        'Questi termini sono regolati dalla legge italiana. Per qualsiasi controversia sarà competente il Foro di Santa Maria Capua Vetere (CE).' :
+        'These terms are governed by Italian law. For any dispute, the Court of Santa Maria Capua Vetere (CE) will have jurisdiction.'
     }
   ];
 
@@ -152,11 +152,10 @@ export function TermsOfService() {
                   {language === 'it' ? 'Dati Societari' : 'Company Information'}
                 </h2>
                 <div className="text-sand/90 space-y-2">
-                  <p><strong>Ragione Sociale:</strong> Azienda Agricola Giovanni Guarino</p>
-                  <p><strong>Sede Legale:</strong> Via delle Castellazioni 19, 81017 Melito di Napoli (NA)</p>
-                  <p><strong>P.IVA:</strong> 08236581214</p>
-                  <p><strong>Email:</strong> info@giovannistefanifarm.it</p>
-                  <p><strong>Telefono:</strong> +39 081 123 4567</p>
+                  <p><strong>Ragione Sociale:</strong> Impresa Agricola Guarino Giovanni</p>
+                  <p><strong>Sede Legale:</strong> Via Fontana Regina, 34 Teano (Ce)</p>
+                  <p><strong>Email:</strong> giovanniguarinosrl@gmail.com</p>
+                  <p><strong>Tel:</strong> 331.8948442 – 392.9779532</p>
                 </div>
               </div>
             </div>

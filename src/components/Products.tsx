@@ -4,41 +4,40 @@ import { ProductCard } from './ProductCard';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
-const productImages = [
-  'https://images.pexels.com/photos/1458346/pexels-photo-1458346.jpeg?auto=compress&cs=tinysrgb&w=600',
-  'https://images.pexels.com/photos/1458347/pexels-photo-1458347.jpeg?auto=compress&cs=tinysrgb&w=600',
-  'https://images.pexels.com/photos/1458348/pexels-photo-1458348.jpeg?auto=compress&cs=tinysrgb&w=600',
-  'https://images.pexels.com/photos/1458349/pexels-photo-1458349.jpeg?auto=compress&cs=tinysrgb&w=600',
-];
-
 export function Products() {
   const { t } = useLanguage();
   const { elementRef, isIntersecting } = useIntersectionObserver();
 
   const products = [
     {
-      title: t('products.organic.title'),
-      description: t('products.organic.description'),
-      price: t('products.organic.price'),
-      image: productImages[0],
+      title: t('products.hazelnutCream.title'),
+      description: t('products.hazelnutCream.description'),
+      price: t('products.priceOnRequest'),
+      image: '/images/products/superior-hazelnut-cream.jpg',
     },
     {
-      title: t('products.lawn.title'),
-      description: t('products.lawn.description'),
-      price: t('products.lawn.price'),
-      image: productImages[1],
+      title: t('products.hazelnutLiqueur.title'),
+      description: t('products.hazelnutLiqueur.description'),
+      price: t('products.priceOnRequest'),
+      image: '/images/products/superior-hazelnut-liqueur.jpg',
     },
     {
-      title: t('products.tomato.title'),
-      description: t('products.tomato.description'),
-      price: t('products.tomato.price'),
-      image: productImages[2],
+      title: t('products.redWine.title'),
+      description: t('products.redWine.description'),
+      price: t('products.priceOnRequest'),
+      image: '/images/products/superior-red-wine.jpg',
     },
     {
-      title: t('products.flower.title'),
-      description: t('products.flower.description'),
-      price: t('products.flower.price'),
-      image: productImages[3],
+      title: t('products.whiteWine.title'),
+      description: t('products.whiteWine.description'),
+      price: t('products.priceOnRequest'),
+      image: '/images/products/superior-white-wine.jpg',
+    },
+    {
+      title: t('products.toastedHazelnut.title'),
+      description: t('products.toastedHazelnut.description'),
+      price: t('products.priceOnRequest'),
+      image: '/images/products/superior-toasted-hazelnut.jpg',
     },
   ];
 
@@ -75,7 +74,7 @@ export function Products() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
           {products.map((product, index) => (
             <ProductCard
               key={index}

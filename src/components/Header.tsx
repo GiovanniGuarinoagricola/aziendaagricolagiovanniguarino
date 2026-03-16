@@ -7,6 +7,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [logoError, setLogoError] = useState(false);
   const { t } = useLanguage();
 
   useEffect(() => {
@@ -58,28 +59,42 @@ export function Header() {
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <motion.div 
+          <motion.a
+            href="#home"
             className="flex items-center space-x-3"
             whileHover={{ scale: 1.05 }}
             initial={{ x: -20, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <div className="relative">
-              <Leaf className={`w-8 h-8 ${isScrolled ? 'text-forest' : 'text-white'} transition-colors duration-500`} />
-              <motion.div
-                className={`absolute -inset-1 ${isScrolled ? 'bg-forest/20' : 'bg-white/20'} rounded-full -z-10 transition-colors duration-500`}
-                initial={{ scale: 0 }}
-                animate={{ scale: [0, 1.2, 1] }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-              />
+            <div className="relative flex items-center">
+              {!logoError ? (
+                  <img
+                  src="/images/logo.png"
+                  alt="Impresa Agricola Guarino Giovanni"
+                  className={`h-12 w-auto object-contain transition-all duration-500 ${
+                    isScrolled ? '' : 'brightness-0 invert'
+                  }`}
+                  onError={() => setLogoError(true)}
+                />
+              ) : (
+                <>
+                  <Leaf className={`w-8 h-8 ${isScrolled ? 'text-forest' : 'text-white'} transition-colors duration-500`} />
+                  <motion.div
+                    className={`absolute -inset-1 ${isScrolled ? 'bg-forest/20' : 'bg-white/20'} rounded-full -z-10 transition-colors duration-500`}
+                    initial={{ scale: 0 }}
+                    animate={{ scale: [0, 1.2, 1] }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
+                  />
+                </>
+              )}
             </div>
             <span className={`text-xl font-serif font-bold ${
               isScrolled ? 'text-forest' : 'text-white'
             } transition-colors duration-500`}>
               Giovanni Guarino
             </span>
-          </motion.div>
+          </motion.a>
 
           {/* Navigation - Desktop */}
           <nav className="hidden md:flex items-center space-x-8">

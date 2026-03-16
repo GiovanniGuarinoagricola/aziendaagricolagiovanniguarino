@@ -203,8 +203,8 @@ export function CookiePolicy() {
               'Per domande relative ai cookie o alla privacy, contattaci all\'indirizzo: ' :
               'For questions related to cookies or privacy, contact us at: '
             }
-            <a href="mailto:privacy@giovannistefanifarm.it" className="text-white underline hover:text-sand transition-colors">
-              privacy@giovannistefanifarm.it
+            <a href="mailto:giovanniguarinosrl@gmail.com" className="text-white underline hover:text-sand transition-colors">
+              giovanniguarinosrl@gmail.com
             </a>
           </p>
         </motion.div>
