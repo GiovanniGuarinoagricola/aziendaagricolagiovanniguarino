@@ -39,7 +39,7 @@ export function Footer() {
       {/* Content with higher z-index */}
       <div className="relative z-10">
         {/* CTA Section */}
-        <div className="container mx-auto px-4 border-b border-[#373636]">
+        <div id="contact" className="container mx-auto px-4 border-b border-[#373636]">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-12">
             <motion.div 
               className="flex items-start space-x-4"
@@ -69,7 +69,10 @@ export function Footer() {
               </div>
               <div>
                 <h4 className="text-white text-lg font-semibold mb-1">Call us</h4>
-                <span className="text-[#757575]">331.8948442 – 392.9779532</span>
+                <p className="text-[#757575] text-sm">🇮🇹 +39 331 894 8442</p>
+                <p className="text-[#999] text-xs mb-2">for Italian order / info</p>
+                <p className="text-[#757575] text-sm">🇬🇧 +39 329 455 5978</p>
+                <p className="text-[#999] text-xs">for English order / info</p>
               </div>
             </motion.div>
             
@@ -120,7 +123,8 @@ export function Footer() {
               <div className="text-[#7e7e7e] text-sm space-y-2 mb-6">
                 <p><strong>Ragione Sociale:</strong> Impresa Agricola Guarino Giovanni</p>
                 <p><strong>Sede Legale:</strong> Via Fontana Regina, 34 Teano (Ce)</p>
-                <p><strong>Tel:</strong> 331.8948442 – 392.9779532</p>
+                <p>🇮🇹 <strong>Tel IT:</strong> +39 331 894 8442</p>
+                <p>🇬🇧 <strong>Tel EN:</strong> +39 329 455 5978</p>
                 <p><strong>Email:</strong> giovanniguarinosrl@gmail.com</p>
               </div>
               <div className="space-y-4">

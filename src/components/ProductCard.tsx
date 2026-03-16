@@ -1,6 +1,6 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { MessageCircle, Star } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { MessageCircle, Star, X } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 interface ProductCardProps {
@@ -13,20 +13,39 @@ interface ProductCardProps {
 
 export function ProductCard({ title, description, price, image, index }: ProductCardProps) {
   const { t } = useLanguage();
+  const [showChoice, setShowChoice] = useState(false);
 
-  const handleWhatsAppOrder = () => {
-    const message = [
-      t('whatsapp.msgGreeting'),
-      '',
-      t('whatsapp.msgIntro'),
-      `🌿 *${title}*`,
-      '',
-      t('whatsapp.msgRequest'),
-      '',
-      t('whatsapp.msgThanks'),
-    ].join('\n');
-    const whatsappUrl = `https://wa.me/393294555978?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+  const buildMessage = (lang: 'it' | 'en') => {
+    if (lang === 'it') {
+      return [
+        'Salve!',
+        '',
+        `Sono interessato/a al seguente prodotto dell'Impresa Agricola Guarino Giovanni:`,
+        `🌿 *${title}*`,
+        '',
+        'Potreste fornirmi informazioni su disponibilità e prezzi?',
+        '',
+        'Grazie mille!',
+      ].join('\n');
+    } else {
+      return [
+        'Hello!',
+        '',
+        `I am interested in the following product from Guarino Giovanni Agricultural Company:`,
+        `🌿 *${title}*`,
+        '',
+        'Could you please provide information on availability and pricing?',
+        '',
+        'Thank you very much!',
+      ].join('\n');
+    }
+  };
+
+  const handleOrder = (lang: 'it' | 'en') => {
+    const number = lang === 'it' ? '393318948442' : '393294555978';
+    const message = buildMessage(lang);
+    window.open(`https://wa.me/${number}?text=${encodeURIComponent(message)}`, '_blank');
+    setShowChoice(false);
   };
 
   return (
@@ -77,16 +96,58 @@ export function ProductCard({ title, description, price, image, index }: Product
           </span>
         </div>
         
-        <motion.button
-          onClick={handleWhatsAppOrder}
-          className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-4 rounded-xl transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl"
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-        >
-          <MessageCircle className="w-5 h-5" />
-          <span>{t('whatsapp.orderNow')}</span>
-        </motion.button>
-        
+        <div className="relative">
+          <motion.button
+            onClick={() => setShowChoice(!showChoice)}
+            className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-4 rounded-xl transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <MessageCircle className="w-5 h-5" />
+            <span>{t('whatsapp.orderNow')}</span>
+          </motion.button>
+
+          <AnimatePresence>
+            {showChoice && (
+              <motion.div
+                initial={{ opacity: 0, y: 8, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 8, scale: 0.95 }}
+                transition={{ duration: 0.18 }}
+                className="absolute bottom-full mb-2 left-0 right-0 bg-white rounded-xl shadow-2xl overflow-hidden z-50 border border-gray-100"
+              >
+                <div className="flex items-center justify-between px-4 py-2 bg-gray-50 border-b border-gray-100">
+                  <span className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Scegli la lingua / Choose language</span>
+                  <button onClick={() => setShowChoice(false)} className="text-gray-400 hover:text-gray-600">
+                    <X className="w-4 h-4" />
+                  </button>
+                </div>
+                <button
+                  onClick={() => handleOrder('it')}
+                  className="w-full flex items-center space-x-3 px-4 py-3 hover:bg-green-50 transition-colors text-left"
+                >
+                  <span className="text-2xl">🇮🇹</span>
+                  <div>
+                    <p className="font-semibold text-gray-800 text-sm">Ordina in Italiano</p>
+                    <p className="text-xs text-gray-500">+39 331 894 8442</p>
+                  </div>
+                </button>
+                <div className="h-px bg-gray-100" />
+                <button
+                  onClick={() => handleOrder('en')}
+                  className="w-full flex items-center space-x-3 px-4 py-3 hover:bg-green-50 transition-colors text-left"
+                >
+                  <span className="text-2xl">🇬🇧</span>
+                  <div>
+                    <p className="font-semibold text-gray-800 text-sm">Order in English</p>
+                    <p className="text-xs text-gray-500">+39 329 455 5978</p>
+                  </div>
+                </button>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+
         <p className="text-sand/60 text-xs text-center mt-2">
           {t('whatsapp.fastOrder')}
         </p>
