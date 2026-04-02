@@ -23,7 +23,7 @@ const translations = {
     'nav.contact': 'Contatti',
     
     // Hero
-    'hero.title': 'Nutriamo la Terra, Coltiviamo il Futuro',
+    'hero.title': 'Prodotti a KM0 di alta qualità per la tua salute e benessere.',
     'hero.subtitle': 'Prodotti a KM0 di alta qualità per la tua salute e benessere.',
     'hero.cta': 'Scopri i Prodotti',
     
@@ -126,7 +126,7 @@ const translations = {
     'nav.contact': 'Contact',
     
     // Hero
-    'hero.title': 'Nourishing Earth, Growing Future',
+    'hero.title': 'High-quality zero Kilometer products for your health and wellness.',
     'hero.subtitle': 'High-quality zero Kilometer products for your health and wellness.',
     'hero.cta': 'Discover Products',
     
