@@ -8,6 +8,8 @@ const galleryImages = Array.from({ length: 21 }, (_, i) => ({
   id: i + 1,
 }));
 
+const VIDEO_AFTER = 8; // il video appare dopo la foto n°8
+
 export function Gallery() {
   const { t } = useLanguage();
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
@@ -53,9 +55,9 @@ export function Gallery() {
           </p>
         </motion.div>
 
-        {/* Masonry Grid */}
-        <div className="columns-2 md:columns-3 lg:columns-4 gap-3 space-y-3">
-          {galleryImages.map((img, index) => (
+        {/* Prima fila di foto (prime 8) */}
+        <div className="columns-2 md:columns-3 lg:columns-4 gap-3 space-y-3 mb-3">
+          {galleryImages.slice(0, VIDEO_AFTER).map((img, index) => (
             <motion.div
               key={img.id}
               className="break-inside-avoid cursor-pointer group relative overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300"
@@ -64,6 +66,49 @@ export function Gallery() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: (index % 8) * 0.05 }}
               onClick={() => openLightbox(index)}
+            >
+              <img
+                src={img.src}
+                alt={`${t('gallery.title')} ${img.id}`}
+                className="w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-forest/0 group-hover:bg-forest/30 transition-colors duration-300 flex items-center justify-center">
+                <Camera className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* VIDEO in evidenza — in mezzo alla galleria */}
+        <motion.div
+          className="w-full rounded-2xl overflow-hidden shadow-2xl my-4"
+          initial={{ opacity: 0, scale: 0.97 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+        >
+          <video
+            src="/images/gallery/farm-video.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full max-h-[70vh] object-cover"
+          />
+        </motion.div>
+
+        {/* Seconda fila di foto (rimanenti) */}
+        <div className="columns-2 md:columns-3 lg:columns-4 gap-3 space-y-3 mt-3">
+          {galleryImages.slice(VIDEO_AFTER).map((img, index) => (
+            <motion.div
+              key={img.id}
+              className="break-inside-avoid cursor-pointer group relative overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: (index % 8) * 0.05 }}
+              onClick={() => openLightbox(VIDEO_AFTER + index)}
             >
               <img
                 src={img.src}
