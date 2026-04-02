@@ -24,7 +24,7 @@ const translations = {
     
     // Hero
     'hero.title': 'Nutriamo la Terra, Coltiviamo il Futuro',
-    'hero.subtitle': 'Prodotti biologici di alta qualità per la tua azienda agricola',
+    'hero.subtitle': 'Prodotti a KM0 di alta qualità per la tua salute e benessere.',
     'hero.cta': 'Scopri i Prodotti',
     
     // Products
@@ -106,6 +106,10 @@ const translations = {
     'whatsapp.msgRequest': 'Potreste fornirmi informazioni su disponibilità e prezzi?',
     'whatsapp.msgThanks': 'Grazie mille!',
     
+    // Gallery
+    'gallery.title': 'La Nostra Azienda',
+    'gallery.subtitle': 'Scorci di natura, lavoro e passione dai nostri campi a Teano',
+
     // Loading
     'loading.text': 'Caricamento...',
     
@@ -123,7 +127,7 @@ const translations = {
     
     // Hero
     'hero.title': 'Nourishing Earth, Growing Future',
-    'hero.subtitle': 'High-quality organic products for your farm',
+    'hero.subtitle': 'High-quality zero Kilometer products for your health and wellness.',
     'hero.cta': 'Discover Products',
     
     // Products
@@ -205,6 +209,10 @@ const translations = {
     'whatsapp.msgRequest': 'Could you please provide information on availability and pricing?',
     'whatsapp.msgThanks': 'Thank you very much!',
     
+    // Gallery
+    'gallery.title': 'Our Farm',
+    'gallery.subtitle': 'Glimpses of nature, work and passion from our fields in Teano',
+
     // Loading
     'loading.text': 'Loading...',
     
