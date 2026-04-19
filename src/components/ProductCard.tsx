@@ -9,9 +9,10 @@ interface ProductCardProps {
   price: string;
   image: string;
   index: number;
+  comingSoon?: boolean;
 }
 
-export function ProductCard({ title, description, price, image, index }: ProductCardProps) {
+export function ProductCard({ title, description, price, image, index, comingSoon = false }: ProductCardProps) {
   const { t } = useLanguage();
   const [showChoice, setShowChoice] = useState(false);
 
@@ -71,11 +72,17 @@ export function ProductCard({ title, description, price, image, index }: Product
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         
-        {/* Rating */}
-        <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-full flex items-center space-x-1">
-          <Star className="w-4 h-4 text-yellow-500 fill-current" />
-          <span className="text-sm font-medium text-gray-700">4.8</span>
-        </div>
+        {/* Badge */}
+        {comingSoon ? (
+          <div className="absolute top-4 right-4 bg-amber-500 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide shadow-lg">
+            Coming Soon
+          </div>
+        ) : (
+          <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-full flex items-center space-x-1">
+            <Star className="w-4 h-4 text-yellow-500 fill-current" />
+            <span className="text-sm font-medium text-gray-700">4.8</span>
+          </div>
+        )}
       </div>
       
       <div className="p-6">
@@ -97,7 +104,13 @@ export function ProductCard({ title, description, price, image, index }: Product
         </div>
         
         <div className="relative">
-          <motion.button
+          {comingSoon ? (
+            <div className="w-full bg-amber-500/20 border border-amber-400/40 text-amber-200 font-semibold py-3 px-4 rounded-xl flex flex-col items-center justify-center text-center">
+              <span className="text-base font-bold">🍎 Coming Soon</span>
+              <span className="text-xs mt-1 opacity-80">{t('products.seasonal')}</span>
+            </div>
+          ) : null}
+          {!comingSoon && <motion.button
             onClick={() => setShowChoice(!showChoice)}
             className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-4 rounded-xl transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl"
             whileHover={{ scale: 1.02 }}
@@ -146,11 +159,14 @@ export function ProductCard({ title, description, price, image, index }: Product
               </motion.div>
             )}
           </AnimatePresence>
+          }
         </div>
 
-        <p className="text-sand/60 text-xs text-center mt-2">
-          {t('whatsapp.fastOrder')}
-        </p>
+        {!comingSoon && (
+          <p className="text-sand/60 text-xs text-center mt-2">
+            {t('whatsapp.fastOrder')}
+          </p>
+        )}
       </div>
     </motion.div>
   );

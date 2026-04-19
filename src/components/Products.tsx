@@ -39,6 +39,13 @@ export function Products() {
       price: t('products.priceOnRequest'),
       image: '/images/products/superior-toasted-hazelnut.jpg',
     },
+    {
+      title: t('products.annurca.title'),
+      description: t('products.annurca.description'),
+      price: t('products.priceOnRequest'),
+      image: '/images/products/mela-annurca-igp.jpg',
+      comingSoon: true,
+    },
   ];
 
   return (
@@ -74,7 +81,7 @@ export function Products() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {products.map((product, index) => (
             <ProductCard
               key={index}

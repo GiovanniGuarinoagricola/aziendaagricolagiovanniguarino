@@ -23,7 +23,7 @@ const translations = {
     'nav.contact': 'Contatti',
     
     // Hero
-    'hero.title': 'Prodotti a KM0 di alta qualità per la tua salute e benessere.',
+    'hero.title': 'Nutriamo la Terra, Coltiviamo il Futuro',
     'hero.subtitle': 'Prodotti a KM0 di alta qualità per la tua salute e benessere.',
     'hero.cta': 'Scopri i Prodotti',
     
@@ -40,6 +40,10 @@ const translations = {
     'products.whiteWine.description': 'Vino bianco superiore, fresco ed elegante, espressione autentica del nostro territorio.',
     'products.toastedHazelnut.title': 'Superior Toasted Hazelnut',
     'products.toastedHazelnut.description': 'Nocciola tostata superiore, raccolta, selezionata e tostata artigianalmente per preservarne gusto e aroma.',
+    'products.annurca.title': 'Mela Annurca IGP',
+    'products.annurca.description': 'La Regina di tutte le Mele. La nostra Mela Annurca IGP, coltivata nel territorio vulcanico di Teano, ricca di proprietà nutritive uniche.',
+    'products.comingSoon': 'Coming Soon',
+    'products.seasonal': 'Prodotto Stagionale',
     'products.priceOnRequest': 'Prezzo su richiesta',
     'products.perPackage': 'per confezione',
     'products.addToCart': 'Richiedi su WhatsApp',
@@ -126,7 +130,7 @@ const translations = {
     'nav.contact': 'Contact',
     
     // Hero
-    'hero.title': 'High-quality zero Kilometer products for your health and wellness.',
+    'hero.title': 'Nourishing Earth, Growing Future',
     'hero.subtitle': 'High-quality zero Kilometer products for your health and wellness.',
     'hero.cta': 'Discover Products',
     
@@ -143,6 +147,10 @@ const translations = {
     'products.whiteWine.description': 'Superior white wine, fresh and elegant — an authentic expression of our unique territory.',
     'products.toastedHazelnut.title': 'Superior Toasted Hazelnut',
     'products.toastedHazelnut.description': 'Superior toasted hazelnuts, hand-harvested, selected and roasted to preserve their unique taste and aroma.',
+    'products.annurca.title': 'Mela Annurca IGP',
+    'products.annurca.description': 'The Queen of all Apples. Our Annurca IGP Apple, grown in the volcanic territory of Teano, rich in unique nutritional properties.',
+    'products.comingSoon': 'Coming Soon',
+    'products.seasonal': 'Seasonal Product',
     'products.priceOnRequest': 'Price on request',
     'products.perPackage': 'per package',
     'products.addToCart': 'Order on WhatsApp',
