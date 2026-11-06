@@ -92,7 +92,7 @@ export function Header() {
             <span className={`text-xl font-serif font-bold ${
               isScrolled ? 'text-forest' : 'text-white'
             } transition-colors duration-500`}>
-              Giovanni Guarino
+              Giovanni Farm
             </span>
           </motion.a>
 

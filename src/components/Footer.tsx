@@ -115,7 +115,7 @@ export function Footer() {
                 ) : (
                   <Leaf className="w-10 h-10 text-[#ff5e14]" />
                 )}
-                <span className="text-2xl font-serif font-bold text-white">Impresa Agricola Guarino Giovanni</span>
+                <span className="text-2xl font-serif font-bold text-white">Giovanni Farm</span>
               </div>
               <p className="text-[#7e7e7e] mb-8 leading-relaxed">
                 Impresa Agricola Guarino Giovanni — fondata nel 1985 a Teano (Ce). Produzione di mele Annurca, nocciole e nettarine su 70 ettari di terreno vulcanico. L'arte della natura.
