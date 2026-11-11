@@ -23,7 +23,7 @@ const translations = {
     'nav.contact': 'Contatti',
     
     // Hero
-    'hero.title': 'Nutriamo la Terra, Coltiviamo il Futuro',
+    'hero.title': 'L\'Arte della Natura',
     'hero.subtitle': 'Prodotti a KM0 di alta qualità per la tua salute e benessere.',
     'hero.cta': 'Scopri i Prodotti',
     
@@ -42,6 +42,20 @@ const translations = {
     'products.toastedHazelnut.description': 'Nocciola tostata superiore, raccolta, selezionata e tostata artigianalmente per preservarne gusto e aroma.',
     'products.annurca.title': 'Mela Annurca IGP',
     'products.annurca.description': 'La Regina di tutte le Mele. La nostra Mela Annurca IGP, coltivata nel territorio vulcanico di Teano, ricca di proprietà nutritive uniche.',
+    'products.christmasBox.title': 'Christmas Box',
+    'products.christmasBox.description': 'La confezione regalo per le feste: una selezione di nocciole ricoperte di cioccolato al latte, fondente e bianco, nella scatola natalizia Giovanni Guarino Farm.',
+    'products.christmasBox.deadline': 'Ordini per Natale entro il 15 dicembre',
+    'products.christmasBox.badge': 'Speciale Natale',
+    'products.annurcaPreserve.title': 'Confettura di Mela Annurca',
+    'products.annurcaPreserve.description': 'Confettura extra di Mela Annurca, 77% di frutta: tutto il sapore autentico delle nostre mele.',
+    'products.annurcaCinnamonPreserve.title': 'Confettura di Mela Annurca e Cannella',
+    'products.annurcaCinnamonPreserve.description': 'Confettura di Mela Annurca con cannella, 72% di frutta: la dolcezza dell\'Annurca incontra il calore della cannella.',
+    'products.acaciaHoney.title': 'Miele di Acacia',
+    'products.acaciaHoney.description': 'Miele delicato e dorato, dalle note floreali leggere.',
+    'products.chestnutHoney.title': 'Miele di Castagno',
+    'products.chestnutHoney.description': 'Miele deciso e aromatico, dal caratteristico retrogusto amarognolo.',
+    'products.wildflowerHoney.title': 'Miele Millefiori',
+    'products.wildflowerHoney.description': 'Miele naturalmente dolce, con il profumo dei fiori di campo.',
     'products.comingSoon': 'Coming Soon',
     'products.seasonal': 'Prodotto Stagionale',
     'products.priceOnRequest': 'Prezzo su richiesta',
@@ -104,9 +118,8 @@ const translations = {
     
     // WhatsApp Integration
     'whatsapp.orderNow': 'Ordina su WhatsApp',
-    'whatsapp.fastOrder': 'Ordine veloce tramite WhatsApp',
     'whatsapp.msgGreeting': 'Salve!',
-    'whatsapp.msgIntro': 'Sono interessato/a al seguente prodotto dell\'Impresa Agricola Guarino Giovanni:',
+    'whatsapp.msgIntro': 'Ciao, vorrei ordinare',
     'whatsapp.msgRequest': 'Potreste fornirmi informazioni su disponibilità e prezzi?',
     'whatsapp.msgThanks': 'Grazie mille!',
     
@@ -130,7 +143,7 @@ const translations = {
     'nav.contact': 'Contact',
     
     // Hero
-    'hero.title': 'Nourishing Earth, Growing Future',
+    'hero.title': 'The Art of Nature',
     'hero.subtitle': 'High-quality zero Kilometer products for your health and wellness.',
     'hero.cta': 'Discover Products',
     
@@ -149,6 +162,20 @@ const translations = {
     'products.toastedHazelnut.description': 'Superior toasted hazelnuts, hand-harvested, selected and roasted to preserve their unique taste and aroma.',
     'products.annurca.title': 'Mela Annurca IGP',
     'products.annurca.description': 'The Queen of all Apples. Our Annurca IGP Apple, grown in the volcanic territory of Teano, rich in unique nutritional properties.',
+    'products.christmasBox.title': 'Christmas Box',
+    'products.christmasBox.description': 'The holiday gift box: a selection of hazelnuts coated in milk, dark and white chocolate, in the Giovanni Guarino Farm Christmas box.',
+    'products.christmasBox.deadline': 'Christmas orders by December 15',
+    'products.christmasBox.badge': 'Christmas Special',
+    'products.annurcaPreserve.title': 'Annurca Apple Preserve',
+    'products.annurcaPreserve.description': 'Annurca apple preserve, 77% fruit: authentic Annurca apples, naturally rich in flavor.',
+    'products.annurcaCinnamonPreserve.title': 'Annurca Apple & Cinnamon Preserve',
+    'products.annurcaCinnamonPreserve.description': 'Annurca apple and cinnamon preserve, 72% fruit: the sweetness of Annurca apples meets warm cinnamon.',
+    'products.acaciaHoney.title': 'Acacia Honey',
+    'products.acaciaHoney.description': 'Delicate, golden honey with gentle floral notes.',
+    'products.chestnutHoney.title': 'Chestnut Honey',
+    'products.chestnutHoney.description': 'Bold and aromatic, with distinctive bittersweet notes.',
+    'products.wildflowerHoney.title': 'Wildflower Honey',
+    'products.wildflowerHoney.description': 'Naturally sweet, with the fragrance of wildflowers.',
     'products.comingSoon': 'Coming Soon',
     'products.seasonal': 'Seasonal Product',
     'products.priceOnRequest': 'Price on request',
@@ -211,9 +238,8 @@ const translations = {
     
     // WhatsApp Integration
     'whatsapp.orderNow': 'Order on WhatsApp',
-    'whatsapp.fastOrder': 'Quick order via WhatsApp',
     'whatsapp.msgGreeting': 'Hello!',
-    'whatsapp.msgIntro': 'I am interested in the following product from Guarino Giovanni Agricultural Company:',
+    'whatsapp.msgIntro': 'Hi, I would like to order',
     'whatsapp.msgRequest': 'Could you please provide information on availability and pricing?',
     'whatsapp.msgThanks': 'Thank you very much!',
     

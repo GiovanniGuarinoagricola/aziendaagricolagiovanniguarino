@@ -70,11 +70,9 @@ export function Header() {
             <div className="relative flex items-center">
               {!logoError ? (
                   <img
-                  src="/images/logo.png"
-                  alt="Impresa Agricola Guarino Giovanni"
-                  className={`h-12 w-auto object-contain transition-all duration-500 ${
-                    isScrolled ? '' : 'brightness-0 invert'
-                  }`}
+                  src="/images/logo-icon.png"
+                  alt="Giovanni Guarino Farm"
+                  className="h-12 w-auto object-contain drop-shadow"
                   onError={() => setLogoError(true)}
                 />
               ) : (
@@ -92,7 +90,7 @@ export function Header() {
             <span className={`text-xl font-serif font-bold ${
               isScrolled ? 'text-forest' : 'text-white'
             } transition-colors duration-500`}>
-              Giovanni Farm
+              Giovanni Guarino Farm
             </span>
           </motion.a>
 

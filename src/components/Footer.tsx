@@ -10,13 +10,13 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
 );
 
 export function Footer() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [logoError, setLogoError] = useState(false);
 
   const socialLinks = [
-    { icon: <Facebook className="w-5 h-5" />, href: 'https://www.facebook.com/ImpresaagricolaGuarinoGiovanni/?locale=it_IT', bgColor: 'bg-[#3B5998]', label: 'Facebook' },
+    { icon: <Facebook className="w-5 h-5" />, href: 'https://www.facebook.com/giovanniguarinofarm', bgColor: 'bg-[#3B5998]', label: 'Facebook' },
     { icon: <WhatsAppIcon className="w-5 h-5" />, href: 'https://wa.me/393294555978', bgColor: 'bg-[#25D366]', label: 'WhatsApp' },
-    { icon: <Instagram className="w-5 h-5" />, href: '#', bgColor: 'bg-[#E4405F]', label: 'Instagram' },
+    { icon: <Instagram className="w-5 h-5" />, href: 'https://www.instagram.com/giovanniguarinofarm/', bgColor: 'bg-[#E4405F]', label: 'Instagram' },
   ];
 
   const usefulLinks = [
@@ -107,15 +107,15 @@ export function Footer() {
               <div className="flex items-center space-x-3 mb-6">
                 {!logoError ? (
                   <img
-                    src="/images/logo.png"
-                    alt="Impresa Agricola Guarino Giovanni"
-                    className="h-14 w-auto object-contain brightness-0 invert"
+                    src="/images/logo-icon.png"
+                    alt="Giovanni Guarino Farm"
+                    className="h-14 w-auto object-contain"
                     onError={() => setLogoError(true)}
                   />
                 ) : (
                   <Leaf className="w-10 h-10 text-[#ff5e14]" />
                 )}
-                <span className="text-2xl font-serif font-bold text-white">Giovanni Farm</span>
+                <span className="text-2xl font-serif font-bold text-white">Giovanni Guarino Farm</span>
               </div>
               <p className="text-[#7e7e7e] mb-8 leading-relaxed">
                 Impresa Agricola Guarino Giovanni — fondata nel 1985 a Teano (Ce). Produzione di mele Annurca, nocciole e nettarine su 70 ettari di terreno vulcanico. L'arte della natura.
@@ -128,12 +128,15 @@ export function Footer() {
                 <p><strong>Email:</strong> giovanniguarinosrl@gmail.com</p>
               </div>
               <div className="space-y-4">
-                <h4 className="text-white text-xl font-semibold mb-4">Follow us</h4>
+                <h4 className="text-white text-xl font-semibold mb-4">{language === 'it' ? 'Seguici' : 'Follow us'}</h4>
                 <div className="flex space-x-4">
                   {socialLinks.map((social, index) => (
                     <motion.a
                       key={social.label}
                       href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={social.label}
                       className={`${social.bgColor} p-2.5 rounded-full hover:opacity-80 transition-opacity`}
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}

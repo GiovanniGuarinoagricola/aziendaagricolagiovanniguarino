@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Leaf } from 'lucide-react';
 import { gsap } from 'gsap';
@@ -10,6 +10,16 @@ export function Hero() {
   const heroRef = useRef<HTMLDivElement>(null);
   const parallaxRef = useParallax(0.5);
   const shapeRef = useRef<SVGSVGElement>(null);
+  const [useVideo, setUseVideo] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 768px) and (prefers-reduced-motion: no-preference)');
+    const saveData = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData;
+    const update = () => setUseVideo(mq.matches && !saveData);
+    update();
+    mq.addEventListener('change', update);
+    return () => mq.removeEventListener('change', update);
+  }, []);
 
   useEffect(() => {
     if (shapeRef.current) {
@@ -39,11 +49,27 @@ export function Hero() {
       >
         {/* Farm Image Background */}
         <div className="absolute inset-0">
-          <img
-            src="/images/hero-background.jpg"
-            alt="Azienda Agricola Giovanni Guarino - Campi di nocciole"
-            className="w-full h-full object-cover"
-          />
+          {/* Video drone su desktop; su mobile solo immagine statica (niente download del video) */}
+          {useVideo ? (
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              poster="/images/hero-drone-poster.jpg"
+              className="w-full h-full object-cover"
+              aria-hidden="true"
+            >
+              <source src="/media/hero-drone.mp4" type="video/mp4" />
+            </video>
+          ) : (
+            <img
+              src="/images/hero-drone-poster.jpg"
+              alt="Giovanni Guarino Farm - Vista aerea dei campi a Teano"
+              className="w-full h-full object-cover"
+            />
+          )}
           <div className="absolute inset-0 bg-gradient-to-br from-forest/80 via-forest/70 to-soil/60"></div>
         </div>
 

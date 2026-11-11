@@ -3,12 +3,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight, Camera } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
-const galleryImages = Array.from({ length: 21 }, (_, i) => ({
-  src: `/images/gallery/gallery-${String(i + 1).padStart(2, '0')}.jpg`,
-  id: i + 1,
+// Foto doppioni rimosse (10, 12, 19, 21): restano solo scatti diversi tra loro.
+const GALLERY_IDS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 13, 14, 15, 16, 17, 18, 20];
+const galleryImages = GALLERY_IDS.map((id) => ({
+  src: `/images/gallery/gallery-${String(id).padStart(2, '0')}.jpg`,
+  id,
 }));
-
-const VIDEO_AFTER = 8; // il video appare dopo la foto n°8
 
 export function Gallery() {
   const { t } = useLanguage();
@@ -44,10 +44,8 @@ export function Gallery() {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-          <div className="inline-flex items-center justify-center w-14 h-14 bg-forest/10 rounded-full mb-5">
-            <Camera className="w-7 h-7 text-forest" />
-          </div>
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-forest mb-4">
+          <h2 className="text-4xl md:text-5xl font-serif font-bold text-forest mb-4 inline-flex items-center justify-center gap-3">
+            <Camera className="w-8 h-8 md:w-10 md:h-10 text-forest/70 shrink-0" aria-hidden="true" />
             {t('gallery.title')}
           </h2>
           <p className="text-lg text-soil/80 max-w-xl mx-auto">
@@ -55,9 +53,8 @@ export function Gallery() {
           </p>
         </motion.div>
 
-        {/* Prima fila di foto (prime 8) */}
-        <div className="columns-2 md:columns-3 lg:columns-4 gap-3 space-y-3 mb-3">
-          {galleryImages.slice(0, VIDEO_AFTER).map((img, index) => (
+        <div className="columns-2 md:columns-3 lg:columns-4 gap-3 space-y-3">
+          {galleryImages.map((img, index) => (
             <motion.div
               key={img.id}
               className="break-inside-avoid cursor-pointer group relative overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300"
@@ -69,50 +66,7 @@ export function Gallery() {
             >
               <img
                 src={img.src}
-                alt={`${t('gallery.title')} ${img.id}`}
-                className="w-full object-cover group-hover:scale-105 transition-transform duration-500"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-forest/0 group-hover:bg-forest/30 transition-colors duration-300 flex items-center justify-center">
-                <Camera className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* VIDEO in evidenza — in mezzo alla galleria */}
-        <motion.div
-          className="w-full rounded-2xl overflow-hidden shadow-2xl my-4"
-          initial={{ opacity: 0, scale: 0.97 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-        >
-          <video
-            src="/images/gallery/farm-video.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full max-h-[70vh] object-cover"
-          />
-        </motion.div>
-
-        {/* Seconda fila di foto (rimanenti) */}
-        <div className="columns-2 md:columns-3 lg:columns-4 gap-3 space-y-3 mt-3">
-          {galleryImages.slice(VIDEO_AFTER).map((img, index) => (
-            <motion.div
-              key={img.id}
-              className="break-inside-avoid cursor-pointer group relative overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: (index % 8) * 0.05 }}
-              onClick={() => openLightbox(VIDEO_AFTER + index)}
-            >
-              <img
-                src={img.src}
-                alt={`${t('gallery.title')} ${img.id}`}
+                alt={`${t('gallery.title')} ${index + 1}`}
                 className="w-full object-cover group-hover:scale-105 transition-transform duration-500"
                 loading="lazy"
               />
